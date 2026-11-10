@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BRACES – Restorant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0d0c;--bg2:#171412;--card:#1d1916;--tx:#f3ece4;--mu:#a89d92;--ac:#c9a063;--ac2:#e0b97a;--bd:#2c2621;--on:#17120c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#faf6f0;--bg2:#f1eadf;--card:#fff;--tx:#1d1713;--mu:#6f645a;--ac:#9c6b25;--ac2:#b5802f;--bd:#e3d9c9;--on:#fff}}
+:root[data-theme="light"]{--bg:#faf6f0;--bg2:#f1eadf;--card:#fff;--tx:#1d1713;--mu:#6f645a;--ac:#9c6b25;--ac2:#b5802f;--bd:#e3d9c9;--on:#fff}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-weight:300}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Playfair Display',serif;font-size:26px;letter-spacing:.28em;color:var(--ac);font-weight:700}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);transition:color .2s}
+nav a:hover{color:var(--ac)}
+.btn{display:inline-block;background:var(--ac);color:var(--on)!important;padding:13px 28px;border:0;border-radius:2px;font:500 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--ac2)}
+.btn.o{background:transparent;color:var(--tx)!important;border:1px solid var(--ac)}
+.btn.o:hover{background:var(--ac);color:var(--on)!important}
+nav .btn{padding:9px 18px;color:var(--on)}
+.hero{min-height:88vh;display:flex;align-items:center;text-align:center;background:radial-gradient(ellipse at 50% 110%,rgba(201,160,99,.28),transparent 60%),linear-gradient(var(--bg),var(--bg2))}
+.eyebrow{color:var(--ac);letter-spacing:.4em;font-size:12px;text-transform:uppercase}
+.hero h1{font-size:clamp(56px,12vw,128px);letter-spacing:.18em;margin:18px 0 10px;font-weight:700;padding-left:.18em}
+.hero p{color:var(--mu);max-width:520px;margin:0 auto 36px;font-size:17px}
+.hero .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+section{padding:96px 0}
+.alt{background:var(--bg2)}
+.title{text-align:center;margin-bottom:52px}
+.title h2{font-size:clamp(32px,5vw,46px);margin-top:10px}
+.line{width:56px;height:1px;background:var(--ac);margin:18px auto 0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about p{color:var(--mu);font-size:17px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.stat{background:var(--card);border:1px solid var(--bd);padding:28px 10px}
+.stat b{display:block;font:500 34px 'Playfair Display',serif;color:var(--ac)}
+.stat span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.tab{background:none;border:1px solid var(--bd);color:var(--mu);padding:10px 22px;font:400 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.tab.on,.tab:hover{border-color:var(--ac);color:var(--ac)}
+.tab.on{background:var(--ac);color:var(--on)}
+.menu{display:none;grid-template-columns:1fr 1fr;gap:10px 56px}
+.menu.on{display:grid}
+.item{padding:18px 0;border-bottom:1px dashed var(--bd)}
+.item div{display:flex;justify-content:space-between;gap:16px;font-family:'Playfair Display',serif;font-size:20px}
+.item div b{color:var(--ac);font:500 17px Inter,sans-serif;white-space:nowrap}
+.item p{margin:4px 0 0;color:var(--mu);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.person{background:var(--card);border:1px solid var(--bd);padding:36px 20px;text-align:center;transition:transform .25s,border-color .25s}
+.person:hover{transform:translateY(-4px);border-color:var(--ac)}
+.av{width:76px;height:76px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;border:1px solid var(--ac);font:500 26px 'Playfair Display',serif;color:var(--ac);background:var(--bg2)}
+.person h3{font-size:21px}
+.person span{font-size:12px;letter-spacing:.18em;color:var(--mu);text-transform:uppercase}
+.rez{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.rez p{color:var(--mu)}
+.info{margin-top:28px;display:grid;gap:14px;font-size:15px}
+.info b{color:var(--ac);font-weight:500;display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.box{background:var(--card);border:1px solid var(--bd);padding:36px}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f label{display:grid;gap:6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.f .full{grid-column:1/-1}
+.f input,.f select,.f textarea{background:var(--bg);color:var(--tx);border:1px solid var(--bd);padding:13px 14px;font:300 15px Inter,sans-serif;border-radius:2px;width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{outline:1px solid var(--ac);border-color:var(--ac)}
+.ok{display:none;text-align:center;padding:30px 0}
+.ok h3{color:var(--ac);font-size:28px;margin-bottom:10px}
+.ok p{color:var(--mu)}
+footer{border-top:1px solid var(--bd);padding:48px 0 36px;text-align:center;color:var(--mu);font-size:14px}
+footer .logo{display:block;margin-bottom:12px}
+footer .cr{margin-top:22px;font-size:12px;letter-spacing:.1em}
+@media (max-width:820px){nav ul li:not(:last-child){display:none}.about,.rez{grid-template-columns:1fr;gap:36px}.menu.on{grid-template-columns:1fr}.team{grid-template-columns:1fr 1fr}section{padding:68px 0}.f{grid-template-columns:1fr}.box{padding:24px}}
+@media (max-width:480px){.team{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a href="#top" class="logo">BRACES</a>
+<ul>
+<li><a href="#rreth">Rreth nesh</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#ekipi">Ekipi</a></li>
+<li><a href="#rezervime">Rezervime</a></li>
+<li><a href="#rezervime" class="btn">Rezervo</a></li>
+</ul></nav></div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+<div class="eyebrow">Skarë · Zjarr · Shije</div>
+<h1>BRACES</h1>
+<p>Një përvojë e rafinuar kulinare, e gatuar mbi prush dhe shërbyer me pasion.</p>
+<div class="row"><a href="#rezervime" class="btn">Rezervo një tavolinë</a><a href="#menu" class="btn o">Shiko menunë</a></div>
+</div></div>
+
+<section id="rreth"><div class="wrap about">
+<div><div class="eyebrow">Historia jonë</div><h2 style="font-size:42px;margin:10px 0 20px">Gatim mbi prush, me shpirt</h2>
+<p>Te BRACES çdo pjatë lind nga zjarri i ngadaltë i prushit dhe nga lëndët e para më të freskëta. Kombinojmë traditën mesdhetare me një prekje moderne, në një ambient elegant e të ngrohtë.</p>
+<p>Qoftë për një darkë romantike, një festë me miq apo një drekë pune, ekipi ynë kujdeset që çdo moment të jetë i veçantë.</p></div>
+<div class="stats"><div class="stat"><b>100%</b><span>E freskët</span></div><div class="stat"><b>6</b><span>Ekipi ynë</span></div><div class="stat"><b>7/7</b><span>Çdo ditë</span></div></div>
+</div></section>
+
+<section id="menu" class="alt"><div class="wrap">
+<div class="title"><div class="eyebrow">Gjellët tona</div><h2>Menu</h2><div class="line"></div></div>
+<div class="tabs" id="tabs">
+<button class="tab on" data-t="m1">Antipasta</button><button class="tab" data-t="m2">Të Zgjedhura nga Prushi</button><button class="tab" data-t="m3">Makarona &amp; Rizoto</button><button class="tab" data-t="m4">Ëmbëlsira</button><button class="tab" data-t="m5">Pije</button>
+</div>
+<div class="menu on" id="m1">
+<div class="item"><div>Karpaço viçi <b>1,100 L</b></div><p>Fileto viçi, rukola, parmixhano, vaj ulliri</p></div>
+<div class="item"><div>Burrata me domate <b>950 L</b></div><p>Burrata kremoze, domate të pjekura, borzilok</p></div>
+<div class="item"><div>Kalamar të pjekur <b>1,200 L</b></div><p>Në prush, me limon dhe salsa verde</p></div>
+<div class="item"><div>Bruskette trio <b>700 L</b></div><p>Domate, djathë dhie me mjaltë, ullinj</p></div>
+<div class="item"><div>Sallatë BRACES <b>800 L</b></div><p>Perime sezonale, arra, vinegret balsamik</p></div>
+<div class="item"><div>Proshutë &amp; djathëra <b>1,400 L</b></div><p>Përzgjedhje e kuruar për dy persona</p></div>
+</div>
+<div class="menu" id="m2">
+<div class="item"><div>Biftek Ribeye <b>3,200 L</b></div><p>350 g, pjekur mbi prush, gjalpë me barishte</p></div>
+<div class="item"><div>Fileto Mignon <b>3,600 L</b></div><p>Salcë piper jeshil, patate me rozmarinë</p></div>
+<div class="item"><div>Kofshë pule të marinuara <b>1,500 L</b></div><p>Me shafran, limon dhe perime të pjekura</p></div>
+<div class="item"><div>Koteleta qengji <b>2,800 L</b></div><p>Barishte aromatike, kripë deti, pure kopsh</p></div>
+<div class="item"><div>Salmon në prush <b>2,400 L</b></div><p>Me asparagus dhe salcë kremoze me kapra</p></div>
+<div class="item"><div>Pjatë e përzier BRACES <b>5,900 L</b></div><p>Përzgjedhje mishrash për 2 persona</p></div>
+</div>
+<div class="menu" id="m3">
+<div class="item"><div>Tagliatelle me trëndafil <b>1,300 L</b></div><p>Makarona të bëra në shtëpi, salcë kremoze</p></div>
+<div class="item"><div>Rizoto me porçini <b>1,600 L</b></div><p>Oriz karnaroli, kërpudha, parmixhano</p></div>
+<div class="item"><div>Spaghetti me fruta deti <b>1,900 L</b></div><p>Karkaleca, midhje, kalamar, vegla e bardhë</p></div>
+<div class="item"><div>Gnocchi me gorgonzolë <b>1,400 L</b></div><p>Arra të pjekura dhe dredhëz</p></div>
+</div>
+<div class="menu" id="m4">
+<div class="item"><div>Tiramisu klasike <b>650 L</b></div><p>Mascarpone, kafe espresso, kakao</p></div>
+<div class="item"><div>Fondant çokollate <b>750 L</b></div><p>Zemër e shkrirë, akullore vanilje</p></div>
+<div class="item"><div>Panna cotta <b>600 L</b></div><p>Salcë frutash të kuqe</p></div>
+<div class="item"><div>Cheesecake me karamel <b>700 L</b></div><p>Bazë biskote, karamel i kripur</p></div>
+</div>
+<div class="menu" id="m5">
+<div class="item"><div>Verë e kuqe (gotë) <b>600 L</b></div><p>Përzgjedhje e verërave shqiptare dhe italiane</p></div>
+<div class="item"><div>Koktej i shtëpisë <b>900 L</b></div><p>Pyesni kamerierin për të ditës</p></div>
+<div class="item"><div>Limonadë me nenexhik <b>400 L</b></div><p>E shtrydhur në çast</p></div>
+<div class="item"><div>Kafe espresso <b>150 L</b></div><p>Përzierje e veçantë e shtëpisë</p></div>
+</div>
+</div></section>
+
+<section id="ekipi"><div class="wrap">
+<div class="title"><div class="eyebrow">Njerëzit pas BRACES</div><h2>Ekipi ynë</h2><div class="line"></div></div>
+<div class="team">
+<div class="person"><div class="av">FT</div><h3>Flait Teqja</h3><span>Ekipi BRACES</span></div>
+<div class="person"><div class="av">EB</div><h3>Elio Beqiraj</h3><span>Ekipi BRACES</span></div>
+<div class="person"><div class="av">AZ</div><h3>Arens Zeneli</h3><span>Ekipi BRACES</span></div>
+<div class="person"><div class="av">FZ</div><h3>Fabjo Zeneli</h3><span>Ekipi BRACES</span></div>
+<div class="person"><div class="av">FL</div><h3>Flavio Llorja</h3><span>Ekipi BRACES</span></div>
+<div class="person"><div class="av">AK</div><h3>Armela Karaj</h3><span>Ekipi BRACES</span></div>
+</div></div></section>
+
+<section id="rezervime" class="alt"><div class="wrap rez">
+<div><div class="eyebrow">Rezervime</div><h2 style="font-size:42px;margin:10px 0 18px">Rezervo tavolinën tënde</h2>
+<p>Plotëso formularin dhe ekipi i BRACES do të konfirmojë rezervimin tënd sa më shpejt.</p>
+<div class="info">
+<div><b>Orari</b>E hënë – E diel · 12:00 – 00:00</div>
+<div><b>Vendndodhja</b>Tiranë, Shqipëri</div>
+<div><b>Grupe të mëdha</b>Për më shumë se 10 persona na kontaktoni paraprakisht</div>
+</div></div>
+<div class="box">
+<form class="f" id="rf" onsubmit="return false">
+<label class="full">Emri &amp; Mbiemri<input id="n" required placeholder="Emri juaj"></label>
+<label>Telefon<input id="p" type="tel" required placeholder="+355 ..."></label>
+<label>Email<input id="e" type="email" placeholder="email@shembull.com"></label>
+<label>Data<input id="d" type="date" required></label>
+<label>Ora<select id="h"><option>12:00</option><option>13:00</option><option>14:00</option><option>18:00</option><option>19:00</option><option selected>20:00</option><option>21:00</option><option>22:00</option></select></label>
+<label class="full">Numri i personave<select id="g"><option>1 person</option><option selected>2 persona</option><option>3 persona</option><option>4 persona</option><option>5 persona</option><option>6 persona</option><option>7 – 10 persona</option></select></label>
+<label class="full">Kërkesa të veçanta<textarea id="k" rows="3" placeholder="Ditëlindje, alergji, vend i preferuar..."></textarea></label>
+<div class="full"><button class="btn" id="sb" style="width:100%">Konfirmo rezervimin</button></div>
+</form>
+<div class="ok" id="ok"><h3>Faleminderit!</h3><p id="okt"></p><p>Do t’ju kontaktojmë së shpejti për konfirmim.</p><button class="btn o" id="again" style="margin-top:14px">Rezervim i ri</button></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<span class="logo">BRACES</span>
+<div>Tiranë, Shqipëri · Çdo ditë 12:00 – 00:00</div>
+<div class="cr">© 2026 BRACES Restorant · Flait Teqja · Elio Beqiraj · Arens Zeneli · Fabjo Zeneli · Flavio Llorja · Armela Karaj</div>
+</div></footer>
+
+<script>
+var tabs=document.querySelectorAll('.tab'),menus=document.querySelectorAll('.menu');
+tabs.forEach(function(t){t.onclick=function(){tabs.forEach(function(x){x.classList.remove('on')});menus.forEach(function(m){m.classList.remove('on')});t.classList.add('on');document.getElementById(t.dataset.t).classList.add('on')}});
+var di=document.getElementById('d');di.min=new Date().toISOString().split('T')[0];
+var f=document.getElementById('rf'),ok=document.getElementById('ok');
+document.getElementById('sb').onclick=function(){
+if(!f.reportValidity())return;
+var v=function(i){return document.getElementById(i).value};
+document.getElementById('okt').textContent=v('n')+', rezervimi për '+v('g')+' më '+v('d')+' në orën '+v('h')+' u regjistrua.';
+f.style.display='none';ok.style.display='block'};
+document.getElementById('again').onclick=function(){f.reset();ok.style.display='none';f.style.display='grid'};
+</script>
+</body>
+</html>
